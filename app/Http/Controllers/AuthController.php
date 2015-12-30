@@ -7,6 +7,8 @@ use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Permit;
+use App\Role;
 use Redirect;
 use Sentinel;
 use Activation;
@@ -138,6 +140,9 @@ class AuthController extends Controller
                 return Redirect::to('register')
                     ->withErrors('Ошибка отправки письма активации.');
             }
+
+            $role = Sentinel::findRoleBySlug('user');
+            $role->users()->attach($sentuser);
 
             return Redirect::to('login')
                 ->withSuccess('Your accout was successfully created. Please check your Emails for activate account.')
@@ -283,7 +288,8 @@ class AuthController extends Controller
 
         ];
         $sentuser = Sentinel::register($credentials);
-
+        $role = Sentinel::findRoleById($request->role);
+        $role->users()->attach($sentuser);
         if($request->activated)
         {
             $activation = Activation::create($sentuser);
@@ -327,6 +333,13 @@ class AuthController extends Controller
         }
         $role = Sentinel::findRoleById($request->role);
         $role->users()->attach($sentuser);
+
+//        $role->permissions = [
+//            'user.update' => true,
+//            'user.view' => true,
+//        ];
+//        $role->save();
+
         $activation = Activation::completed($sentuser);
         if($request->activated)
         {
@@ -360,6 +373,60 @@ class AuthController extends Controller
             Sentinel::update($sentuser, $credentials);
         }
         return Redirect('/admin/eloquent_users');
+    }
+
+
+    public function adminRoleCreate(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'slug' => 'required',
+        ]);
+
+        $role = Sentinel::getRoleRepository()->createModel()->create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+        ]);
+        if(isset($request->permits))
+            foreach($request->permits as $permitId){
+                $permit = Permit::find($permitId);
+                $role->addPermission($permit->slug);
+            }
+        $role = Role::find($role->id);
+        $arrPermitsForRole = $request->input('permits');
+        $role->setPermitsAttribute($arrPermitsForRole);
+        return Redirect('/admin/roles');
+    }
+
+
+    /**
+     * Update role from admin panel
+     *
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function adminRoleUpdate(Request $request, $id)
+    {
+        $role = Sentinel::findRoleById($id);
+        $allpermits = Permit::all();
+        foreach($allpermits as $permit)
+        {
+            $role->removePermission($permit->slug)->save();
+        }
+        if(isset($request->permits))
+            foreach($request->permits as $permitId){
+                $permit = Permit::find($permitId);
+                $role->addPermission($permit->slug);
+            }
+        $role->slug = $request->slug;
+        $role->name = $request->name;
+        $role->save();
+
+        $role = Role::find($role->id);
+        $arrPermitsForRole = $request->input('permits');
+        $role->setPermitsAttribute($arrPermitsForRole);
+        return Redirect('/admin/roles');
     }
 
 }

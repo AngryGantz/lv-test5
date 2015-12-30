@@ -27,8 +27,6 @@ Route::get('reset/{id}/{code}', 'AuthController@resetComplete');
 Route::post('reset/{id}/{code}', 'AuthController@resetCompleteProcess');
 Route::get('wait', 'AuthController@wait');
 
-
-
 //Route::get('admin', ['middleware' => 'isadmin', function()
 //{
 //    $content = 'Define your dashboard here.';
@@ -36,6 +34,3 @@ Route::get('wait', 'AuthController@wait');
 //
 //}]);
 //
-
-
-
