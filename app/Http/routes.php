@@ -27,10 +27,22 @@ Route::get('reset/{id}/{code}', 'AuthController@resetComplete');
 Route::post('reset/{id}/{code}', 'AuthController@resetCompleteProcess');
 Route::get('wait', 'AuthController@wait');
 
-//Route::get('admin', ['middleware' => 'isadmin', function()
-//{
-//    $content = 'Define your dashboard here.';
-//    return Admin::view($content, 'Dashboard');
 //
-//}]);
-//
+
+
+/**
+ * Route for social auth
+ */
+Route::get('/socialite/{provider}',
+    [
+        'as' => 'socialite.auth',
+        function ( $provider ) {
+            return \Socialite::driver( $provider )->redirect();
+        }
+    ]
+);
+
+Route::get('/socialite/{provider}/callback', function ($provider) {
+    $user = \Socialite::driver($provider)->user();
+    dd($user);
+});

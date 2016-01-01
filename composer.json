@@ -11,8 +11,15 @@
         "cartalyst/sentinel": "2.0.*",
 	    "sleeping-owl/admin": "dev-development",
         "barryvdh/laravel-debugbar": "^2.1",
-        "laravelcollective/html": "5.1.*"
+        "laravelcollective/html": "5.1.*",
+        "laravel/socialite": "^2.0"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.cartalyst.com"
+        }
+    ],
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
