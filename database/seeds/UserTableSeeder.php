@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Sentinel;
-use Activation;
 
 class UserTableSeeder extends Seeder
 {
@@ -13,16 +11,22 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user=Sentinel::register(array(
+
+        $admin = [
             'email'    => 'admin@admin.com',
             'password' => 'adminadmin',
-        ));
-        $activation = Activation::create($user);
-        Activation::complete($user, $activation->code);
-        $role = Sentinel::getRoleRepository()->createModel()->create([
+        ];
+        $adminUser = Sentinel::registerAndActivate($admin);
+
+        $role = [
             'name' => 'Администратор',
             'slug' => 'admin',
-        ]);
-        $role->users()->attach($user);
+            'permissions' => [
+                'admin' => true,
+            ]
+        ];
+        $adminRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
+        $adminUser->roles()->attach($adminRole);
+
     }
 }
