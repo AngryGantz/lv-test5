@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '722824941186073',
         'client_secret' => '15e102eb982c191e33d9a69ad0ac6a9c',
-        'redirect' => 'http://your-callback-url',
+        'redirect' => 'http://lv-test5.mychefs.ru/socialite/facebook/callback',
     ],
 
 ];
