@@ -47,8 +47,8 @@
       <file leaf-file-name="SocialController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2102336">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.53726363">
+              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -69,8 +69,8 @@
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.966667">
-              <caret line="99" column="67" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="67" />
+            <state vertical-scroll-proportion="-12.666667">
+              <caret line="90" column="44" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="44" />
               <folding>
                 <element signature="e#2925#4509#0#PHP" expanded="false" />
                 <element signature="e#4659#5025#0#PHP" expanded="false" />
@@ -805,8 +805,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.966667">
-          <caret line="99" column="67" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="67" />
+        <state vertical-scroll-proportion="-12.666667">
+          <caret line="90" column="44" selection-start-line="90" selection-start-column="33" selection-end-line="90" selection-end-column="44" />
           <folding>
             <element signature="e#2925#4509#0#PHP" expanded="false" />
             <element signature="e#4659#5025#0#PHP" expanded="false" />
@@ -823,8 +823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SocialController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2102336">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.53726363">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="e#40#68#0#PHP" expanded="true" />
           </folding>
