@@ -12,6 +12,7 @@ class SocialController extends Controller
 {
     public function supervisor($provider)
     {
+        dd($provider->name);
         $user = \Socialite::driver($provider)->user();
         dd($user->name);
     }
