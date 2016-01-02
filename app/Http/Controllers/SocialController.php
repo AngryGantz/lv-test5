@@ -18,7 +18,6 @@ class SocialController extends Controller
         if(! $email){
             $errors = "Социальная сеть не дала ваш Email. Скорее всего вы не прошли верификацию в данной сети.";
             return Redirect::to('register')
-                ->withInput()
                 ->withErrors($errors);
         }
     }
