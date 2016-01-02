@@ -41,8 +41,4 @@ Route::get('/socialite/{provider}',
         }
     ]
 );
-
-Route::get('/socialite/{provider}/callback', function ($provider) {
-    $user = \Socialite::driver($provider)->user();
-    dd($user);
-});
+Route::get('/socialite/{provider}/callback', 'SocialController@supervisor');

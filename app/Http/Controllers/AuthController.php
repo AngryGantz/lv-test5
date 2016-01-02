@@ -375,7 +375,12 @@ class AuthController extends Controller
         return Redirect('/admin/eloquent_users');
     }
 
-
+    /**
+     * Create role from Admin Panel
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function adminRoleCreate(Request $request)
     {
         $this->validate($request, [

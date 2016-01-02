@@ -40,6 +40,7 @@
             <div class="content">
                 <div class="title">Laravel 5</div>
                 <p><a href="{!! route('socialite.auth', 'facebook') !!}">Facebook</a></p>
+                <p><a href="{!! route('socialite.auth', 'twitter') !!}">Twitter</a></p>
             </div>
         </div>
     </body>

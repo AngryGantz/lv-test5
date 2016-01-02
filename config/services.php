@@ -41,4 +41,9 @@ return [
         'redirect' => 'http://lv-test5.mychefs.ru/socialite/facebook/callback',
     ],
 
+    'twitter' => [
+        'client_id' => '1QgPX2sx8kBLcdLFwusU1qEf7',
+        'client_secret' => 'LLnyhST6DtseuCbVBFibGkmMPPTslxwucc198Gq20tGPiOBraW',
+        'redirect' => 'http://lv-test5.mychefs.ru/socialite/twitter/callback',
+    ],
 ];
