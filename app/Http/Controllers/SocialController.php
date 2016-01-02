@@ -13,7 +13,12 @@ class SocialController extends Controller
     public function supervisor($provider)
     {
         $user = \Socialite::driver($provider)->user();
-
-        dd($user->getEmail());
+        $email=$user->getEmail();
+        if(! $email){
+            $errors = "Социальная сеть не дала ваш Email. Скорее всего вы не прошли верификацию в данной сети.";
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($errors);
+        }
     }
 }
