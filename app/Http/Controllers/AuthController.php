@@ -458,9 +458,11 @@ class AuthController extends Controller
 //
 //    }
 
-    public function logout()
+    public function logoutuser()
     {
-        Sentinel::logout(null, true);
+//        Sentinel::logout(null, true);
+        Sentinel::logout();
+        return Redirect::intended('/');
     }
 
 
