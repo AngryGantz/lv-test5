@@ -15,7 +15,6 @@ class SocialController extends Controller
 {
     public function supervisor($provider)
     {
-        dd('sadsad');
         $socUser = \Socialite::driver($provider)->user();
         $email=$socUser->getEmail();
         if(! $email){
@@ -23,6 +22,7 @@ class SocialController extends Controller
             return Redirect::to('register')
                 ->withErrors($errors);
         }
+        dd('sadsad');
         if ($user = Sentinel::findByCredentials(array('email' => $email)))
         {
             Sentinel::authenticate($user);
