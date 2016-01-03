@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Sentinel;
 use Redirect;
+use Storage;
+use CurlHttp;
 
 class SocialController extends Controller
 {
