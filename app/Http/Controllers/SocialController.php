@@ -15,6 +15,7 @@ class SocialController extends Controller
 {
     public function supervisor($provider)
     {
+        dd('sadsad');
         $socUser = \Socialite::driver($provider)->user();
         $email=$socUser->getEmail();
         if(! $email){
@@ -34,7 +35,7 @@ class SocialController extends Controller
             'password' => str_random(16),
             'first_name' => $name,
         ];
-        dd('sadsad');
+
         $user = Sentinel::registerAndActivate($arrUser);
         $socAvatarUrl = $socUser->getAvatar();
         if( $socAvatarUrl ) $response = CurlHttp::get($socAvatarUrl);
