@@ -15,6 +15,7 @@ use Activation;
 use Reminder;
 use Validator;
 use Mail;
+use Storage;
 
 class AuthController extends Controller
 {
@@ -440,11 +441,16 @@ class AuthController extends Controller
         if ($user = Sentinel::findByCredentials(array('email' => $email)))
         {
             Sentinel::authenticate($user);
+            $avatar = 'https://scontent.xx.fbcdn.net/hprofile-xaf1/v/t1.0-1/376689_104705169682959_641046286_n.jpg?oh=5eec0be72b890bb327f2c954ef5199e1&oe=56FE3210';
+//            $avatar = 'https://graph.facebook.com/v2.5/636296983190439/picture?width=1920';
+            Storage::put('avatars/'.$user->id.'.jpg', $avatar);
+
             return Redirect::intended('/');
         }
         $name = 'Pupkin';
-
-
+        $avatar = 'https://scontent.xx.fbcdn.net/hprofile-xaf1/v/t1.0-1/376689_104705169682959_641046286_n.jpg?oh=5eec0be72b890bb327f2c954ef5199e1&oe=56FE3210';
+//        $avatar = 'https://graph.facebook.com/v2.5/636296983190439/picture?width=1920';
+        Storage::put('avatars/'.$user->id.'.jpg', $avatar);
 
     }
 }
