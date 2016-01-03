@@ -434,4 +434,17 @@ class AuthController extends Controller
         return Redirect('/admin/roles');
     }
 
+
+    public function test(Request $request){
+        $email=$request->email;
+        if ($user = Sentinel::findByCredentials(array('email' => $email)))
+        {
+            Sentinel::authenticate($user);
+            return Redirect::intended('/');
+        }
+        $name = 'Pupkin';
+
+
+
+    }
 }
