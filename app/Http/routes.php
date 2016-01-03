@@ -21,6 +21,7 @@ Route::post('register', 'AuthController@registerProcess');
 Route::get('activate/{id}/{code}', 'AuthController@activate');
 Route::get('login', 'AuthController@login');
 Route::post('login', 'AuthController@loginProcess');
+Route::get('logout', 'AuthController@logout');
 //Route::post('login', 'AuthController@test');
 Route::get('reset', 'AuthController@resetOrder');
 Route::post('reset', 'AuthController@resetOrderProcess');
