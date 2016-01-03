@@ -12,7 +12,8 @@
 	    "sleeping-owl/admin": "dev-development",
         "barryvdh/laravel-debugbar": "^2.1",
         "laravelcollective/html": "5.1.*",
-        "laravel/socialite": "^2.0"
+        "laravel/socialite": "^2.0",
+        "vinelab/http": "dev-master"
     },
     "repositories": [
         {

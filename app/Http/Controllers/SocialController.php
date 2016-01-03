@@ -14,7 +14,6 @@ class SocialController extends Controller
     public function supervisor($provider)
     {
         $socUser = \Socialite::driver($provider)->user();
-        dd($socUser);
         $email=$socUser->getEmail();
         if(! $email){
             $errors = "Социальная сеть не дала ваш Email. Скорее всего вы не прошли верификацию в данной сети.";
@@ -24,9 +23,19 @@ class SocialController extends Controller
         if ($user = Sentinel::findByCredentials(array('email' => $email)))
         {
             Sentinel::authenticate($user);
+            return Redirect::intended('/');
         }
         $name = $socUser->getNickname();
         if (! $name) $name = $socUser->getName();
-
+        $arrUser = [
+            'email'    => $email,
+            'password' => str_random(16),
+            'first_name' => $name,
+        ];
+        $user = Sentinel::registerAndActivate($arrUser);
+        $socAvatarUrl = $socUser->getAvatar();
+        if( $socAvatarUrl ) $response = CurlHttp::get($socAvatarUrl);
+        $avatar = $response->content();
+        if(isset($avatar)) Storage::put('avatars/'.$user->id.'.jpg', $response->content());
     }
 }

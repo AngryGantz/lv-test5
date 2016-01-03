@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b37824f8169aebac51881c09c971549f",
-    "content-hash": "c84d5079e9d01f97eb38293a47802e7d",
+    "hash": "30bffe8c25e84ea66585a8b97e235589",
+    "content-hash": "23b91fd255ca251dd82bf15e31696f87",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -3196,6 +3196,56 @@
             "time": "2015-12-05 10:02:55"
         },
         {
+            "name": "vinelab/http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Vinelab/http.git",
+                "reference": "26974a6f2c635795aed893f9aa0f87118f137d95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Vinelab/http/zipball/26974a6f2c635795aed893f9aa0f87118f137d95",
+                "reference": "26974a6f2c635795aed893f9aa0f87118f137d95",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "*",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Vinelab\\Http": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abed Halawi",
+                    "email": "abed.halawi@vinelab.com"
+                }
+            ],
+            "description": "An http library developed for the laravel framework. aliases itself as HttpClient",
+            "keywords": [
+                "api",
+                "client",
+                "curl",
+                "http",
+                "json",
+                "laravel",
+                "xml"
+            ],
+            "time": "2015-12-09 08:57:51"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v1.1.1",
             "source": {
@@ -4423,7 +4473,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "sleeping-owl/admin": 20
+        "sleeping-owl/admin": 20,
+        "vinelab/http": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

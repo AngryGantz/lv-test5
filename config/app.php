@@ -177,6 +177,14 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
 
+
+        /**
+         * Curl for Laravel
+         *
+         * @link http://packalyst.com/packages/package/vinelab/http  page on lara pacckage
+         */
+        Vinelab\Http\HttpServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -275,6 +283,14 @@ return [
          */
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        /**
+         * Curl for Laravel
+         *
+         * @link http://packalyst.com/packages/package/vinelab/http  page on lara pacckage
+         */
+        'CurlHttp' => Vinelab\Http\Facades\Client::class,
+
 
 
     ],
