@@ -10,19 +10,19 @@ use Sentinel;
 use Redirect;
 use Storage;
 use CurlHttp;
+use Socialite;
 
 class SocialController extends Controller
 {
     public function supervisor($provider)
     {
-        $socUser = \Socialite::driver($provider)->user();
+        $socUser = Socialite::driver($provider)->user();
         $email=$socUser->getEmail();
         if(! $email){
             $errors = "Социальная сеть не дала ваш Email. Скорее всего вы не прошли верификацию в данной сети.";
             return Redirect::to('register')
                 ->withErrors($errors);
         }
-        dd('sadsad');
         if ($user = Sentinel::findByCredentials(array('email' => $email)))
         {
             Sentinel::authenticate($user);
