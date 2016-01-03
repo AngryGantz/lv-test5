@@ -460,7 +460,6 @@ class AuthController extends Controller
 
     public function logoutuser()
     {
-//        Sentinel::logout(null, true);
         Sentinel::logout();
         return Redirect::intended('/');
     }

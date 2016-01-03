@@ -8,8 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Sentinel;
 use Redirect;
-//use Storage;
-//use CurlHttp;
+use Storage;
+use CurlHttp;
 use Socialite;
 
 class SocialController extends Controller
@@ -37,10 +37,10 @@ class SocialController extends Controller
         ];
 
         $user = Sentinel::registerAndActivate($arrUser);
-//        $socAvatarUrl = $socUser->getAvatar();
-//        if( $socAvatarUrl ) $response = CurlHttp::get($socAvatarUrl);
-//        $avatar = $response->content();
-//        if(isset($avatar)) Storage::put('avatars/'.$user->id.'.jpg', $response->content());
+        $socAvatarUrl = $socUser->getAvatar();
+        if( $socAvatarUrl ) $response = CurlHttp::get($socAvatarUrl);
+        $avatar = $response->content();
+        if(isset($avatar)) Storage::put('avatars/'.$user->id.'.jpg', $response->content());
         return Redirect::intended('/');
     }
 }
