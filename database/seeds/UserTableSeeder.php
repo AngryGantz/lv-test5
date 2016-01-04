@@ -28,5 +28,18 @@ class UserTableSeeder extends Seeder
         $adminRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
         $adminUser->roles()->attach($adminRole);
 
+        $role = [
+            'name' => 'Пользователь',
+            'slug' => 'user',
+        ];
+        $userRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
+
+        $role = [
+            'name' => 'Забанен',
+            'slug' => 'banned',
+        ];
+        $banRole = Sentinel::getRoleRepository()->createModel()->fill($role)->save();
+
+
     }
 }

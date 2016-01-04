@@ -36,20 +36,20 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '722824941186073',
-        'client_secret' => '15e102eb982c191e33d9a69ad0ac6a9c',
+        'client_id'     => env('FACEBOOK_KEY'),
+        'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => 'http://lv-test5.mychefs.ru/socialite/facebook/callback',
     ],
 
     'twitter' => [
-        'client_id' => '1QgPX2sx8kBLcdLFwusU1qEf7',
-        'client_secret' => 'LLnyhST6DtseuCbVBFibGkmMPPTslxwucc198Gq20tGPiOBraW',
-        'redirect' => 'http://lv-test5.mychefs.ru/socialite/twitter/callback',
+        'client_id'     =>  env('TWITTER_KEY'),
+        'client_secret' => env('TWITTER_SECRET'),
+        'redirect'      => 'http://lv-test5.mychefs.ru/socialite/twitter/callback',
     ],
 
     'vkontakte' => [
-        'client_id' => '5208962',
-        'client_secret' => 'qXoMtOvzVyqjLff1h6OX',
-        'redirect' => 'http://lv-test5.mychefs.ru/socialite/vkontakte/callback',
+        'client_id'     => env('VKONTAKTE_KEY'),
+        'client_secret' => env('VKONTAKTE_SECRET'),
+        'redirect'      => 'http://lv-test5.mychefs.ru/socialite/vkontakte/callback',
     ],
 ];

@@ -35,7 +35,6 @@ class SocialController extends Controller
             'password' => str_random(16),
             'first_name' => $name,
         ];
-
         $user = Sentinel::registerAndActivate($arrUser);
         Sentinel::authenticate($user);
         $socAvatarUrl = $socUser->getAvatar();
