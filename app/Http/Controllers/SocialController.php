@@ -37,6 +37,7 @@ class SocialController extends Controller
         ];
 
         $user = Sentinel::registerAndActivate($arrUser);
+        Sentinel::authenticate($user);
         $socAvatarUrl = $socUser->getAvatar();
         if( $socAvatarUrl ) $response = CurlHttp::get($socAvatarUrl);
         $avatar = $response->content();
