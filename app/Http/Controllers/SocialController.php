@@ -17,6 +17,7 @@ class SocialController extends Controller
     public function supervisor($provider)
     {
         $socUser = Socialite::driver($provider)->user();
+        dd($socUser);
         $email=$socUser->getEmail();
         if(! $email){
             $errors = "Социальная сеть не дала ваш Email. Скорее всего вы не прошли верификацию в данной сети.";
