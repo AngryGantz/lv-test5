@@ -13,7 +13,8 @@
         "barryvdh/laravel-debugbar": "^2.1",
         "laravelcollective/html": "5.1.*",
         "laravel/socialite": "^2.0",
-        "vinelab/http": "dev-master"
+        "vinelab/http": "dev-master",
+        "socialiteproviders/vkontakte": "^1.1"
     },
     "repositories": [
         {

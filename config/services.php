@@ -46,4 +46,10 @@ return [
         'client_secret' => 'LLnyhST6DtseuCbVBFibGkmMPPTslxwucc198Gq20tGPiOBraW',
         'redirect' => 'http://lv-test5.mychefs.ru/socialite/twitter/callback',
     ],
+
+    'vkontakte' => [
+        'client_id' => '5208962',
+        'client_secret' => 'qXoMtOvzVyqjLff1h6OX',
+        'redirect' => 'http://lv-test5.mychefs.ru/socialite/vkontakte/callback',
+    ],
 ];

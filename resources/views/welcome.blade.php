@@ -41,6 +41,7 @@
                 <div class="title">Laravel 5</div>
                 <p><a href="{!! route('socialite.auth', 'facebook') !!}">Facebook</a></p>
                 <p><a href="{!! route('socialite.auth', 'twitter') !!}">Twitter</a></p>
+                <p><a href="{!! route('socialite.auth', 'vkontakte') !!}">Vkontakte</a></p>
             </div>
         </div>
     </body>
