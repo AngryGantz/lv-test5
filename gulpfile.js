@@ -14,3 +14,42 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss');
 });
+
+
+var gulp = require('gulp');
+var livereload = require('gulp-livereload');
+
+/**
+ * task - 'default'
+ * executes 'live-monitor'
+ */
+gulp.task('default', ['live-monitor']);
+
+/**
+ * task - 'laravel-views'
+ * monitor laravel views
+ */
+gulp.task('laravel-views', function() {
+    gulp.src('resources/views/**/*.blade.php')
+        .pipe(livereload());
+});
+
+/**
+ * task - 'laravel-theme'
+ * monitor laravel theme
+ */
+gulp.task('laravel-theme', function() {
+    gulp.src('public/themes/default/**/*.*')
+        .pipe(livereload());
+});
+
+
+/**
+ * task - 'live-monitor'
+ * monitors everything
+ */
+gulp.task('live-monitor', function() {
+    livereload.listen();
+    gulp.watch('public/themes/default/**/*.*', ['laravel-theme']);
+    gulp.watch('resources/views/**/*.blade.php', ['laravel-views']);
+});

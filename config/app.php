@@ -185,6 +185,14 @@ return [
          */
         Vinelab\Http\HttpServiceProvider::class,
 
+
+        /**
+         * Add multiple Theme to Laravel
+         *
+         * @link https://github.com/teepluss/laravel-theme  Guthub theme page
+         */
+        Teepluss\Theme\ThemeServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -290,6 +298,14 @@ return [
          * @link http://packalyst.com/packages/package/vinelab/http  page on lara pacckage
          */
         'CurlHttp' => Vinelab\Http\Facades\Client::class,
+
+
+        /**
+         * Add multiple Theme to Laravel
+         *
+         * @link https://github.com/teepluss/laravel-theme  Guthub theme page
+         */
+        'Theme' => Teepluss\Theme\Facades\Theme::class,
 
 
 

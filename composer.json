@@ -14,14 +14,9 @@
         "laravelcollective/html": "5.1.*",
         "laravel/socialite": "^2.0",
         "vinelab/http": "dev-master",
-        "socialiteproviders/vkontakte": "^1.1"
+        "socialiteproviders/vkontakte": "^1.1",
+        "teepluss/theme": "dev-master"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.cartalyst.com"
-        }
-    ],
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",

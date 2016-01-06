@@ -11,26 +11,28 @@
 |
 */
 
+/**
+ *  Route for Homepage
+ */
 Route::get('/', function () {
-    return view('welcome');
+    $theme = Theme::uses(env('THEMA'))->layout(env('LAYOUT'));
+    return $theme->scope('home')->render();
 });
 
-
+/**
+ * Route for auth system
+ */
 Route::get('register', 'AuthController@register');
 Route::post('register', 'AuthController@registerProcess');
 Route::get('activate/{id}/{code}', 'AuthController@activate');
 Route::get('login', 'AuthController@login');
 Route::post('login', 'AuthController@loginProcess');
 Route::get('logout', 'AuthController@logoutuser');
-//Route::post('login', 'AuthController@test');
 Route::get('reset', 'AuthController@resetOrder');
 Route::post('reset', 'AuthController@resetOrderProcess');
 Route::get('reset/{id}/{code}', 'AuthController@resetComplete');
 Route::post('reset/{id}/{code}', 'AuthController@resetCompleteProcess');
 Route::get('wait', 'AuthController@wait');
-
-//
-
 
 /**
  * Route for social auth

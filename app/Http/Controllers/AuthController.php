@@ -17,8 +17,9 @@ use Validator;
 use Mail;
 use Storage;
 use CurlHttp;
+use Theme;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
 
     /**
@@ -28,7 +29,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return view('auth.login');
+        return $this->theme->scope('auth.login')->render();
     }
 
     /**
@@ -38,7 +39,7 @@ class AuthController extends Controller
      */
     public function register()
     {
-        return view('auth.register');
+        return $this->theme->scope('auth.register')->render();
     }
 
 
@@ -49,7 +50,7 @@ class AuthController extends Controller
      */
     public function wait()
     {
-        return view('auth.wait');
+        return $this->theme->scope('auth.wait')->render();
     }
 
 
@@ -94,7 +95,9 @@ class AuthController extends Controller
                     ->withErrors('Ошибка отправки письма активации.');
             }
             $errors = 'Ваш аккаунт не ативирован! Поищите в своем почтовом ящике письмо со ссылкой для активации (Вам отправлено повторное письмо). ';
-            return view('auth.login')->withErrors($errors);
+            return Redirect::to('login')
+                ->withInput()
+                ->withErrors($errors);
         }
         catch (ThrottlingException $e)
         {
@@ -170,11 +173,11 @@ class AuthController extends Controller
         if ( ! Activation::complete($sentuser, $code))
         {
             return Redirect::to("login")
-                ->withErrors('Invalid or expired activation code.');
+                ->withErrors('Неверный или просроченный код активации.');
         }
 
         return Redirect::to('login')
-            ->withSuccess('Account activated.');
+            ->withSuccess('Аккаунт активирован.');
     }
 
 
@@ -185,7 +188,7 @@ class AuthController extends Controller
      */
     public function resetOrder()
     {
-        return view('auth.reset_order');
+        return $this->theme->scope('auth.reset_order')->render();
     }
 
 
@@ -206,7 +209,7 @@ class AuthController extends Controller
         {
             return Redirect::back()
                 ->withInput()
-                ->withErrors('No user with that email address belongs in our system.');
+                ->withErrors('Пользователь с таким E-Mail адресом в системе не обнаружен.');
         }
          $reminder = Reminder::exists($sentuser) ?: Reminder::create($sentuser);
          $code = $reminder->code;
@@ -234,7 +237,7 @@ class AuthController extends Controller
     public function resetComplete($id, $code)
     {
         $user = Sentinel::findById($id);
-        return view('auth.reset_complete');
+        return $this->theme->scope('auth.reset_complete')->render();
     }
 
 
